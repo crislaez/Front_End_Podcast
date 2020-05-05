@@ -1,0 +1,8 @@
+aside{
+    width: 0%;
+    height: 100vh;
+    position: absolute;
+    transition: all 300ms;
+    background: #FAEC18;
+    box-shadow: 7px 0px 3px grey;
+}
