@@ -5,6 +5,9 @@ import './Section.css';
 
 //Componentes
 import Aside from '../Aside/Aside'
+import VerTodo from '../VerTodo/VerTodo'
+import Login from '../Login/Login'
+import Registro from '../Registro/Registro'
 
 class Section extends React.Component{
 
@@ -19,7 +22,23 @@ class Section extends React.Component{
             {
                 this.props.cambioVentanas === 'bVetTodos'
                 ?
-                <h2>Ver Todo</h2>
+                <VerTodo></VerTodo>
+                :
+                <div></div>
+            }
+
+            {
+                this.props.ventanaLogin
+                ?
+                <Login funcionAparecerLogin={this.props.funcionAparecerLogin}></Login>
+                :
+                <div></div>
+            }
+
+            {
+                this.props.ventanaRegistro
+                ?
+                <Registro funcionAparecerRegistro={this.props.funcionAparecerRegistro} funcionAparecerLogin={this.props.funcionAparecerLogin}></Registro>
                 :
                 <div></div>
             }

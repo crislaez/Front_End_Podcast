@@ -14,6 +14,8 @@ class App extends React.Component{
 
     _VLoginOCerrarSesion = false;
     _VAside = false;
+    _VLogin = false;
+    _VRegistro = false;
 
     constructor(props){
         super(props);
@@ -21,24 +23,19 @@ class App extends React.Component{
             {
                 mostrarLoginOCerrarSesion:false,
                 cambioVentanas:'bVetTodos',
-                aparecerAside:'0%'
+                aparecerAside:'0%',
+                ventanaLogin:false,
+                ventanaRegistro:false
             };
     }
 
-    funcionCambiarLoginACerrarSesion = () => {
-        if(!this._VLoginOCerrarSesion){
+    componentDidMount(){
+
+        if(localStorage.getItem('usuario') && localStorage.getItem('primariKey')){
             this.setState({mostrarLoginOCerrarSesion:true});
             this._VLoginOCerrarSesion = true;
-        }else{
-            this.setState({mostrarLoginOCerrarSesion:false});
-            this._VLoginOCerrarSesion = false;
-        }
-    }
-
-    //funcion para ir cambiando de ventanas
-    funcionCambiarVentanas = (event) => {
-        console.log(event.target.id);
-        this.setState({cambioVentanas:event.target.id});
+            console.log('LocalStorage Existe')
+        }   
     }
 
     //funcion para aparecer el aside
@@ -51,21 +48,81 @@ class App extends React.Component{
             this._VAside = false;
         }
     }
+
+    //funcion para ir cambiando de ventanas
+    funcionCambiarVentanas = (event) => {
+        console.log(event.target.id);
+        this.setState({cambioVentanas:event.target.id});
+    }
+
+    /**
+     * funcion que se llamara en el onClick de Cerrar sesion, 
+     * se borraran las 2 varaibles del localStorage usuario y primariKey
+     */
+    funcionCambiarCerrarSesionALogin = () => {
+        let confirmacion = window.confirm('Seguro que quieres cerrar sesion?');
+        if(confirmacion){
+            localStorage.removeItem('usuario');
+            localStorage.removeItem('primariKey');
+            this.setState({mostrarLoginOCerrarSesion:false});
+            this._VLoginOCerrarSesion = false;
+        }       
+    }
+
+    //funcion para cuando te logueas, que se cambie el boton de login a cerrar sesion
+    funcionCambarLoginACerrarSesion = (datosUsuario) => {
+        if(datosUsuario){
+            localStorage.setItem('usuario',datosUsuario.nombre);
+            localStorage.setItem('primariKey',datosUsuario.primariKey)
+            this.setState({mostrarLoginOCerrarSesion:true});
+            this._VLoginOCerrarSesion = true;
+        }        
+    }    
+
+    //funcion para qeu cuadno demos a la ventana login aparezca el componente y el formulario
+    funcionAparecerLogin = () => {
+        if(!this._VLogin){
+            this.setState({ventanaLogin:true});
+            this._VLogin = true;
+        }else{
+            this.setState({ventanaLogin:false});
+            this._VLogin = false;
+        }
+    }
+    
+    //funcion para que aparezca el formulario cuando pionchemos en el boton de registro
+    funcionAparecerRegistro = () => {
+        if(!this._VRegistro){
+            this.setState({ventanaRegistro:true});
+            this._VRegistro = true;
+        }else{
+            this.setState({ventanaRegistro:false});
+            this._VRegistro = false;
+        }
+    }
+
     render(){
 
         return(
             <div>
-                <header></header>
+                <Header></Header>
 
                 <Nav 
                 mostrarLoginOCerrarSesion={this.state.mostrarLoginOCerrarSesion}
                 funcionCambiarVentanas={this.funcionCambiarVentanas}
                 funcionAParecerNav={this.funcionAParecerNav}
+                funcionCambiarCerrarSesionALogin={this.funcionCambiarCerrarSesionALogin}
+                funcionAparecerLogin={this.funcionAparecerLogin}
+                funcionAparecerRegistro={this.funcionAparecerRegistro}
                 ></Nav>
 
                 <Section
                 cambioVentanas={this.state.cambioVentanas}
                 aparecerAside={this.state.aparecerAside}
+                ventanaLogin={this.state.ventanaLogin}
+                ventanaRegistro={this.state.ventanaRegistro}
+                funcionAparecerLogin={this.funcionAparecerLogin}
+                funcionAparecerRegistro={this.funcionAparecerRegistro}
                 ></Section>
 
                 <Footer></Footer>
