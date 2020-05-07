@@ -34,7 +34,7 @@ class App extends React.Component{
         if(localStorage.getItem('usuario') && localStorage.getItem('primariKey')){
             this.setState({mostrarLoginOCerrarSesion:true});
             this._VLoginOCerrarSesion = true;
-            console.log('LocalStorage Existe')
+            console.log('LocalStorage Existe');
         }   
     }
 
@@ -64,7 +64,8 @@ class App extends React.Component{
         if(confirmacion){
             localStorage.removeItem('usuario');
             localStorage.removeItem('primariKey');
-            this.setState({mostrarLoginOCerrarSesion:false});
+            //para que desaparezca el boton de perfil del nav y mostramos el boton de login de nuevo
+            this.setState({mostrarLoginOCerrarSesion:false,cambioVentanas:'bVetTodos'});
             this._VLoginOCerrarSesion = false;
         }       
     }
@@ -75,7 +76,7 @@ class App extends React.Component{
             localStorage.setItem('usuario',datosUsuario.nombre);
             localStorage.setItem('primariKey',datosUsuario.primariKey)
             this.setState({mostrarLoginOCerrarSesion:true});
-            this._VLoginOCerrarSesion = true;
+            this._VLoginOCerrarSesion = true;            
         }        
     }    
 
@@ -123,6 +124,7 @@ class App extends React.Component{
                 ventanaRegistro={this.state.ventanaRegistro}
                 funcionAparecerLogin={this.funcionAparecerLogin}
                 funcionAparecerRegistro={this.funcionAparecerRegistro}
+                funcionCambarLoginACerrarSesion={this.funcionCambarLoginACerrarSesion}
                 ></Section>
 
                 <Footer></Footer>

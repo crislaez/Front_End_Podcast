@@ -5,6 +5,8 @@ import './Registro.css'
 
 class Registro extends React.Component{
     
+    _isMount = false;
+    
     constructor(props){
         super(props);
         this.state = 
@@ -17,6 +19,14 @@ class Registro extends React.Component{
                 rClave:''
 
             };
+    }
+
+    componentDidMount(){
+        this._isMount = true;
+    }
+
+    componentWillUnmount(){
+        this._isMount = false;
     }
 
     handleSubmit = (event) => { 
@@ -40,12 +50,6 @@ class Registro extends React.Component{
             alert('Las claves deben coincidir');
         }
         else{
-            console.log(this.state.nombre);
-            console.log(this.state.apellido);
-            console.log(this.state.nacimiento);
-            console.log(this.state.correo);
-            console.log(this.state.clave);
-            console.log(this.state.rClave);
 
             const data = new URLSearchParams(`nombre=${this.state.nombre}&apellido=${this.state.apellido}&nacimiento=${this.state.nacimiento}&correo=${this.state.correo}&clave=${this.state.clave}`);
 

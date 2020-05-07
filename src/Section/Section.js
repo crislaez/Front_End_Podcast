@@ -6,14 +6,15 @@ import './Section.css';
 //Componentes
 import Aside from '../Aside/Aside'
 import VerTodo from '../VerTodo/VerTodo'
+import Perfil from '../Perfil/Perfil'
 import Login from '../Login/Login'
 import Registro from '../Registro/Registro'
 
 class Section extends React.Component{
 
-    constructor(props){
-        super(props);
-    }
+    // constructor(props){
+    //     super(props);
+    // }
 
     render(){
         return(
@@ -24,13 +25,19 @@ class Section extends React.Component{
                 ?
                 <VerTodo></VerTodo>
                 :
+                this.props.cambioVentanas === 'bPerfil'
+                ?
+                <Perfil></Perfil>
+                :
                 <div></div>
             }
 
             {
                 this.props.ventanaLogin
                 ?
-                <Login funcionAparecerLogin={this.props.funcionAparecerLogin}></Login>
+                <Login funcionAparecerLogin={this.props.funcionAparecerLogin}
+                funcionCambarLoginACerrarSesion={this.props.funcionCambarLoginACerrarSesion}
+                ></Login>
                 :
                 <div></div>
             }
@@ -38,7 +45,9 @@ class Section extends React.Component{
             {
                 this.props.ventanaRegistro
                 ?
-                <Registro funcionAparecerRegistro={this.props.funcionAparecerRegistro} funcionAparecerLogin={this.props.funcionAparecerLogin}></Registro>
+                <Registro 
+                funcionAparecerRegistro={this.props.funcionAparecerRegistro} 
+                ></Registro>
                 :
                 <div></div>
             }
