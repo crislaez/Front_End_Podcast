@@ -16,6 +16,7 @@ class App extends React.Component{
     _VAside = false;
     _VLogin = false;
     _VRegistro = false;
+    _VSubirPodcast = false;
 
     constructor(props){
         super(props);
@@ -25,7 +26,8 @@ class App extends React.Component{
                 cambioVentanas:'bVetTodos',
                 aparecerAside:'0%',
                 ventanaLogin:false,
-                ventanaRegistro:false
+                ventanaRegistro:false,
+                aparecerformularioSubirPodcast:false
             };
     }
 
@@ -102,6 +104,21 @@ class App extends React.Component{
         }
     }
 
+    /**
+     * funcion que se ejecutara cuando toquemos el boton 'subir foto'
+     * del componente perfil 
+     */
+
+    funcionAparecerFormularioSubirPodcast = () => {
+        if(!this._VSubirPodcast){
+            this.setState({aparecerformularioSubirPodcast:true});
+            this._VSubirPodcast = true
+        }else{
+            this.setState({aparecerformularioSubirPodcast:false});
+            this._VSubirPodcast = false;
+        }
+    }
+
     render(){
 
         return(
@@ -125,6 +142,8 @@ class App extends React.Component{
                 funcionAparecerLogin={this.funcionAparecerLogin}
                 funcionAparecerRegistro={this.funcionAparecerRegistro}
                 funcionCambarLoginACerrarSesion={this.funcionCambarLoginACerrarSesion}
+                funcionAparecerFormularioSubirPodcast={this.funcionAparecerFormularioSubirPodcast}
+                aparecerformularioSubirPodcast={this.state.aparecerformularioSubirPodcast}
                 ></Section>
 
                 <Footer></Footer>

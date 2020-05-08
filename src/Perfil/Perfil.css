@@ -25,3 +25,35 @@
     overflow-y: scroll;
     float: left;
 }
+
+.divSubtitulo{
+    width: 100%;
+    height: 50px;
+    /* background: blueviolet; */
+    float: left;
+}
+
+.divSubtitulo input{
+    width: 12%;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 5px;
+    margin-left: 25%;
+    background: #282c34;
+    color: white;
+    cursor: pointer;
+    float: left;
+}
+
+.divSubtitulo input:hover{
+    background: #515151;
+}
+
+.divSubtitulo h3{
+    text-align: center;
+    font-size: 30px;
+    margin-left: 3%;
+    float: left;
+    /* margin-top: -15px; */
+}

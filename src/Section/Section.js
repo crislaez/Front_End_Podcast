@@ -9,6 +9,7 @@ import VerTodo from '../VerTodo/VerTodo'
 import Perfil from '../Perfil/Perfil'
 import Login from '../Login/Login'
 import Registro from '../Registro/Registro'
+import FormularioSubirPodcas from '../FormularioSubirPodcas/FormularioSubirPodcas'
 
 class Section extends React.Component{
 
@@ -27,7 +28,7 @@ class Section extends React.Component{
                 :
                 this.props.cambioVentanas === 'bPerfil'
                 ?
-                <Perfil></Perfil>
+                <Perfil funcionAparecerFormularioSubirPodcast={this.props.funcionAparecerFormularioSubirPodcast}></Perfil>
                 :
                 <div></div>
             }
@@ -48,6 +49,14 @@ class Section extends React.Component{
                 <Registro 
                 funcionAparecerRegistro={this.props.funcionAparecerRegistro} 
                 ></Registro>
+                :
+                <div></div>
+            }
+
+            {
+                this.props.aparecerformularioSubirPodcast
+                ?
+                <FormularioSubirPodcas funcionAparecerFormularioSubirPodcast={this.props.funcionAparecerFormularioSubirPodcast}></FormularioSubirPodcas>
                 :
                 <div></div>
             }
