@@ -37,11 +37,12 @@ class FormularioSubirPodcas extends React.Component{
                 formData.append("mp3", this.state.mp3);
                 formData.append("foto", this.state.foto);    
                
-                fetch('http://localhost:3001/api/podcast',{method:'POST',body:formData, headers: { //'Content-Type': '"multipart/form-data;',
+                fetch('http://localhost:3001/api/addPodcast',{method:'POST',body:formData, headers: { //'Content-Type': '"multipart/form-data;',
                 }})
                 .then(data => data.json())
                 .then(response => {
                     // console.log(response);
+                    alert('Podcast subido')
                     const funcionAparecerFormularioSubirPodcast = this.props.funcionAparecerFormularioSubirPodcast;
                     funcionAparecerFormularioSubirPodcast();
 

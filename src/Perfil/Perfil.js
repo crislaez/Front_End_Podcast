@@ -44,6 +44,24 @@ class Perfil extends React.Component{
          }        
      }
 
+     handleClickBorrarPodcast = (event) => {
+        // console.log(event.target.dataset.indice);
+        let confirmacion = window.confirm('Seguro que desea borrar el podcast?');
+
+        if(confirmacion){
+            fetch('http://localhost:3001/api/deletePodcast/'+event.target.dataset.indice,{method:'DELETE'})
+            .then(data => data.json())
+            .then(response => {
+                console.log(response)
+                alert('Podcast borrado');
+                this.funcionGetFetch();
+            })
+            .catch(err => {
+                console.log(err.message);
+            })
+        }        
+     }
+
     render(){
         
         return(
@@ -75,6 +93,7 @@ class Perfil extends React.Component{
                                             <source src={data.mp3} type="audio/mpeg"></source>
                                         </audio>
                                         <a href='' download={data.mp3}>Descargar</a>
+                                        <input type='button' value='Borrar' data-indice={data.id_podcast} onClick={this.handleClickBorrarPodcast}></input>
                                     </div>
                                 </div>
                             )

@@ -106,14 +106,32 @@
 
 .divPodcastTitulo audio{
     margin-top: 2em;
-    /* margin-left: 3%; */
+    width: 94%;
+    margin-left: 3%;
 }
 
 .divPodcastTitulo a{
-    /* width: 50%; */
+    width: 45%;
     /* background: yellow; */
     margin-top: 1em;
-    margin-left: 40%;
+    margin-left: 5%;
+    font-size: 14px;
     float: left;
     height: 10px;
+}
+
+.divPodcastTitulo input[type='button']{
+    width: 45%;
+    height: 30px;
+    background: #282c34;
+    margin-top: 1em;
+    margin-left: 5%;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.divPodcastTitulo input[type='button']:hover{
+    background: #515151;
 }

@@ -25,3 +25,57 @@
     overflow-y: scroll;
     float: left;
 }
+
+.divPodcastVerTodo{
+    width: 40%;
+    height: 200px;
+    margin-left: 7%;
+    /* background: yellow; */
+    border: 1px solid grey;
+    box-shadow: 3px 3px 3px grey;
+    border-radius: 5px;
+    margin-top: 30px;
+    float: left;
+}
+
+.divPodcastFotoVerTodo{
+    width: 40%;
+    height: 180px;
+    margin-top: 10px;
+    margin-left: 5%;
+    float: left;
+}
+
+.divPodcastFotoVerTodo img{
+    width: 100%;
+    height: 180px;
+}
+
+.divPodcastTituloVerTodo{
+    width: 50%;
+    height: 200px;
+    margin-left: 2%;
+    /* background: green; */
+    float: left;
+}
+
+.divPodcastTituloVerTodo p{
+    text-align: center;
+    margin-top: 2em;
+}
+
+.divPodcastTituloVerTodo audio{
+    margin-top: 2em;
+    width: 94%;
+    margin-left: 3%;
+}
+
+.divPodcastTituloVerTodo a{
+    width: 45%;
+    /* background: yellow; */
+    margin-top: 1em;
+    margin-left: 5%;
+    font-size: 14px;
+    float: left;
+    height: 10px;
+}

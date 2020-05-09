@@ -53,7 +53,7 @@ class Registro extends React.Component{
 
             const data = new URLSearchParams(`nombre=${this.state.nombre}&apellido=${this.state.apellido}&nacimiento=${this.state.nacimiento}&correo=${this.state.correo}&clave=${this.state.clave}`);
 
-            fetch('http://localhost:3001/api/add',{method:'POST', body:data})
+            fetch('http://localhost:3001/api/addUser',{method:'POST', body:data})
             .then(data => data.json())
             .then(response => {
             
