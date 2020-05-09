@@ -17,6 +17,7 @@ class FormularioSubirPodcas extends React.Component{
 
     handleSubmit = (event) => {
         event.preventDefault();
+
         if(localStorage.getItem('primariKey')){
             if(!this.state.titulo){
                 alert('Rellene le titulo del podcast');
@@ -28,24 +29,19 @@ class FormularioSubirPodcas extends React.Component{
                 alert('escoja la foto para el podcast');
             }
             else{
-                console.log(localStorage.getItem('usuario'));
-                console.log(localStorage.getItem('primariKey'))
-                console.log(this.state.titulo);
-                console.log(this.state.mp3);
-                console.log(this.state.foto);
 
                 var formData = new FormData();
                 formData.append("id_usuario", localStorage.getItem('primariKey'));
                 formData.append("id_podcast", '');
                 formData.append("titulo", this.state.titulo);
                 formData.append("mp3", this.state.mp3);
-                formData.append("foto", this.state.mp3);    
+                formData.append("foto", this.state.foto);    
                
                 fetch('http://localhost:3001/api/podcast',{method:'POST',body:formData, headers: { //'Content-Type': '"multipart/form-data;',
                 }})
                 .then(data => data.json())
                 .then(response => {
-                    console.log(response);
+                    // console.log(response);
                     const funcionAparecerFormularioSubirPodcast = this.props.funcionAparecerFormularioSubirPodcast;
                     funcionAparecerFormularioSubirPodcast();
 
