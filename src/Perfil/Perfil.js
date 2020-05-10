@@ -3,7 +3,7 @@ import React from 'react';
 //css
 import './Perfil.css';
 //componente
-// import FormularioSubirPodcas from '../FormularioSubirPodcas/FormularioSubirPodcas'
+import Podcast from '../Podcast/Podcast'
 
 class Perfil extends React.Component{
     
@@ -83,19 +83,7 @@ class Perfil extends React.Component{
                         ?
                         this.state.arrayPodcast.map( (data, key) => {
                             return(
-                                <div key={key} className='divPodcast'>
-                                    <div className='divPodcastFoto'>
-                                        <img src={data.foto} alt={data.foto}></img>
-                                    </div>
-                                    <div className='divPodcastTitulo'>
-                                        <p><strong>{data.titulo}</strong></p>
-                                        <audio controls>
-                                            <source src={data.mp3} type="audio/mpeg"></source>
-                                        </audio>
-                                        <a href='' download={data.mp3}>Descargar</a>
-                                        <input type='button' value='Borrar' data-indice={data.id_podcast} onClick={this.handleClickBorrarPodcast}></input>
-                                    </div>
-                                </div>
+                                <Podcast key={key} foto={data.foto} titulo={data.titulo} mp3={data.mp3} id_podcast={data.id_podcast} handleClickBorrarPodcast={this.handleClickBorrarPodcast} display={true}></Podcast>
                             )
                         })
                         :

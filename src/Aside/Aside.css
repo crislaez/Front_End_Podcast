@@ -4,5 +4,40 @@ aside{
     position: absolute;
     transition: all 300ms;
     background: #282c34;
+    overflow: hidden;
     box-shadow: 7px 0px 3px grey;
+}
+
+aside form {
+    width: 98%;
+    margin-left: 1%;
+    background: white;
+    margin-top: 20px;
+    border-radius: 5px;
+    height: 50px;
+}
+
+aside form input[type='text']{
+    width: 70%;
+    height: 40px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    margin-left: 5%;
+}
+
+aside form input[type='submit']{
+    width: 20%;
+    height: 40px;
+    border: none;
+    background: #282c34;
+    color: white;
+    margin-left: 2%;
+    margin-top: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+aside form input[type='submit']:hover{
+    background: #515151;
 }

@@ -2,7 +2,8 @@ import React from 'react';
 
 //css
 import './VerTodo.css';
-
+//componente
+import Podcast from '../Podcast/Podcast'
 class VerTodo extends React.Component{
     _isMount = false;
 
@@ -41,18 +42,7 @@ class VerTodo extends React.Component{
                     ?
                     this.state.array.map( (data, key) => {
                         return(
-                            <div key={key} className='divPodcastVerTodo'>
-                            <div className='divPodcastFotoVerTodo'>
-                                <img src={data.foto} alt={data.foto}></img>
-                            </div>
-                            <div className='divPodcastTituloVerTodo'>
-                                <p><strong>{data.titulo}</strong></p>
-                                <audio controls>
-                                    <source src={data.mp3} type="audio/mpeg"></source>
-                                </audio>
-                                <a href='' download={data.mp3}>Descargar</a>                               
-                            </div>
-                        </div>
+                            <Podcast key={key} foto={data.foto} titulo={data.titulo} mp3={data.mp3} id_podcast={data.id_podcast} handleClickBorrarPodcast={this.handleClickBorrarPodcast} display={false}></Podcast>
                         )
                     })
                     :

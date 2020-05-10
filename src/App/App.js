@@ -117,6 +117,11 @@ class App extends React.Component{
             this.setState({aparecerformularioSubirPodcast:false});
             this._VSubirPodcast = false;
         }
+    }   
+
+    //funcion para cambiar la ventana cuando busquemos un usuario desde el aside
+    funcionCambiarVentanaPerfilBuscador = () => {
+        this.setState({cambioVentanas:'bPerfilBuscador'})
     }
 
     render(){
@@ -144,6 +149,8 @@ class App extends React.Component{
                 funcionCambarLoginACerrarSesion={this.funcionCambarLoginACerrarSesion}
                 funcionAparecerFormularioSubirPodcast={this.funcionAparecerFormularioSubirPodcast}
                 aparecerformularioSubirPodcast={this.state.aparecerformularioSubirPodcast}
+                funcionAParecerNav={this.funcionAParecerNav}
+                funcionCambiarVentanaPerfilBuscador={this.funcionCambiarVentanaPerfilBuscador}
                 ></Section>
 
                 <Footer></Footer>
