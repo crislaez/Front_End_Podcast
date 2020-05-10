@@ -32,7 +32,7 @@ class Section extends React.Component{
             <section>
              <Aside aparecerAside={this.props.aparecerAside} funcionBuscarUsuario={this.funcionBuscarUsuario} funcionAParecerNav={this.props.funcionAParecerNav} funcionCambiarVentanaPerfilBuscador={this.props.funcionCambiarVentanaPerfilBuscador}></Aside>
             {
-                this.props.cambioVentanas === 'bVetTodos'
+                this.props.cambioVentanas === 'bInicio'
                 ?
                 <VerTodo></VerTodo>
                 :

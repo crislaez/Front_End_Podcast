@@ -13,7 +13,7 @@ class Nav extends React.Component{
         return(
             <nav>
                 <button id='bAside' className='botonNav' onClick={this.props.funcionAParecerNav}><FontAwesomeIcon icon={faBars}></FontAwesomeIcon></button>
-                <input id='bVetTodos' className='botonNav' type='button' value='VER TODOS' onClick={this.props.funcionCambiarVentanas}></input>
+                <input id='bInicio' className='botonNav' type='button' value='INICIO' onClick={this.props.funcionCambiarVentanas}></input>
                 {
                     this.props.mostrarLoginOCerrarSesion
                     ?

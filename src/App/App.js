@@ -23,7 +23,7 @@ class App extends React.Component{
         this.state = 
             {
                 mostrarLoginOCerrarSesion:false,
-                cambioVentanas:'bVetTodos',
+                cambioVentanas:'bInicio',
                 aparecerAside:'0%',
                 ventanaLogin:false,
                 ventanaRegistro:false,

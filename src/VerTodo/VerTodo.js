@@ -32,7 +32,7 @@ class VerTodo extends React.Component{
             <article className='articleVerTodo'>
 
                 <div className='divTituloVerTodo'>
-                    <h2>VER TODO</h2>
+                    <h2>INICIO</h2>
                 </div>
 
                 <div className='contenedorVerTodo'>
