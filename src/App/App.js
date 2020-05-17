@@ -67,7 +67,7 @@ class App extends React.Component{
             localStorage.removeItem('usuario');
             localStorage.removeItem('primariKey');
             //para que desaparezca el boton de perfil del nav y mostramos el boton de login de nuevo
-            this.setState({mostrarLoginOCerrarSesion:false,cambioVentanas:'bVetTodos'});
+            this.setState({mostrarLoginOCerrarSesion:false,cambioVentanas:'bInicio'});
             this._VLoginOCerrarSesion = false;
         }       
     }
