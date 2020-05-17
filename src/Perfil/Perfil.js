@@ -79,7 +79,7 @@ class Perfil extends React.Component{
                     <div className='contenidoPodcast'>
 
                     {
-                        this._isMount && this.state.arrayPodcast
+                        this._isMount && this.state.arrayPodcast.toString()
                         ?
                         this.state.arrayPodcast.map( (data, key) => {
                             return(
@@ -87,7 +87,9 @@ class Perfil extends React.Component{
                             )
                         })
                         :
-                        <div></div>
+                        <div className='podcastVacio'>
+                            <p>No has subido ningun podcas todavia...</p>
+                        </div>
                     }
                     </div>
                 </div>
